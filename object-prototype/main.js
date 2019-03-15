@@ -1,3 +1,6 @@
+/*jshint esversion: 6*/
+'use strict';
+
 function initCheckBirthday() {
     const birthday = document.getElementById('birthday').value;
 
@@ -7,7 +10,12 @@ function initCheckBirthday() {
 }
 
 function checkBirthday(birthday) {
-    // код для задачи №1 писать здесь
+    const nowDate = Date.now();
+    const userDate = new Date(birthday);
+    birthday = +userDate;
+    const diff = nowDate - birthday;
+    const age = diff / 1000 / 60 / 60 / 24 /366;
+    return age > 18;
 }
 
 function initPrintAnimalSound() {
@@ -21,7 +29,8 @@ function initPrintAnimalSound() {
 }
 
 function getAnimalSound(animal) {
-    // код для задачи №2 писать здесь
+    const sound = animal.sound;
+    return sound === undefined ? null : sound;
 }
 
 function initCalculateStatement() {
@@ -35,5 +44,6 @@ function initCalculateStatement() {
 }
 
 function getAverageMark(marks) {
-    // код для задачи №3 писать здесь
+    const roundedAverage = Math.round(marks.reduce((x, y) => x + Number(y), 0) / marks.length);
+    return roundedAverage;
 }
