@@ -114,7 +114,7 @@ class Weapon {
 		if (this.durability >= 0.3 * this.startDurability) {
 			return this.attack;
 		}
-		if (this.durability === 0) {
+		if (this.isBroken()) {
 			return 0;
 		}
 		return this.attack / 2;
